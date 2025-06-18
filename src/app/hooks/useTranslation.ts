@@ -221,7 +221,15 @@ const translations: { [locale: string]: TranslationData } = {
       you: "You",
       aiTutor: "AI Tutor",
       placeholder: "Ask me anything about Solana, or request a quiz...",
-      poweredBy: "Press Enter to send • Shift+Enter for new line • Powered by OpenAI & Solana Agent Kit"
+      poweredBy: "Press Enter to send • Shift+Enter for new line • Powered by OpenAI & Solana Agent Kit",
+      questions: [
+        "What makes Solana different from Ethereum?",
+        "Explain Proof of History in simple terms",
+        "How do SPL tokens work?",
+        "Create a beginner quiz about blockchain basics",
+        "What are PDAs and why are they important?",
+        "Generate a quiz about Solana DeFi protocols"
+      ]
     },
     navigation: {
       dashboard: "Dashboard",
@@ -466,7 +474,15 @@ const translations: { [locale: string]: TranslationData } = {
       you: "あなた",
       aiTutor: "AIチューター",
       placeholder: "Solanaについて何でも聞いてください、またはクイズをリクエストしてください...",
-      poweredBy: "Enterで送信 • Shift+Enterで改行 • OpenAI & Solana Agent Kit 提供"
+      poweredBy: "Enterで送信 • Shift+Enterで改行 • OpenAI & Solana Agent Kit 提供",
+      questions: [
+        "SolanaとEthereumの違いは何ですか？",
+        "Proof of Historyを簡単に説明してください",
+        "SPLトークンはどのように機能しますか？",
+        "ブロックチェーン基礎の初級クイズを作成してください",
+        "PDAとは何で、なぜ重要なのですか？",
+        "Solana DeFiプロトコルのクイズを生成してください"
+      ]
     },
     navigation: {
       dashboard: "ダッシュボード",

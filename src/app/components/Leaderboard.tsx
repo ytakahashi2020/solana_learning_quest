@@ -174,12 +174,12 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ setCurrentView }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Time Frame Filter */}
         <div className="bg-[#20242D] rounded-xl border border-[rgba(255,255,255,0.1)] p-4">
-          <h3 className="text-white font-semibold mb-3">Time Frame</h3>
+          <h3 className="text-white font-semibold mb-3">{t("leaderboard.timeFrame")}</h3>
           <div className="flex space-x-2">
             {[
-              { key: "weekly", label: "This Week" },
-              { key: "monthly", label: "This Month" },
-              { key: "allTime", label: "All Time" }
+              { key: "weekly", label: t("leaderboard.thisWeek") },
+              { key: "monthly", label: t("leaderboard.thisMonth") },
+              { key: "allTime", label: t("leaderboard.allTime") }
             ].map((frame) => (
               <button
                 key={frame.key}
@@ -198,24 +198,24 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ setCurrentView }) => {
 
         {/* Category Filter */}
         <div className="bg-[#20242D] rounded-xl border border-[rgba(255,255,255,0.1)] p-4">
-          <h3 className="text-white font-semibold mb-3">Category</h3>
+          <h3 className="text-white font-semibold mb-3">{t("leaderboard.category")}</h3>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value as any)}
             className="w-full bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.2)] rounded-lg px-3 py-2 text-white focus:outline-none focus:border-purple-500"
           >
-            <option value="overall">Overall Rankings</option>
-            <option value="blockchain-basics">Blockchain Basics</option>
-            <option value="solana-fundamentals">Solana Fundamentals</option>
-            <option value="defi-protocols">DeFi Protocols</option>
-            <option value="nft-tokens">NFTs & Tokens</option>
+            <option value="overall">{t("leaderboard.overallRankings")}</option>
+            <option value="blockchain-basics">{t("leaderboard.blockchainBasics")}</option>
+            <option value="solana-fundamentals">{t("leaderboard.solanaFundamentals")}</option>
+            <option value="defi-protocols">{t("leaderboard.defiProtocols")}</option>
+            <option value="nft-tokens">{t("leaderboard.nftsTokens")}</option>
           </select>
         </div>
       </div>
 
       {/* Top 3 Podium */}
       <div className="bg-[#20242D] rounded-xl border border-[rgba(255,255,255,0.1)] p-6">
-        <h2 className="text-xl font-bold text-white mb-6 text-center">Top Performers</h2>
+        <h2 className="text-xl font-bold text-white mb-6 text-center">{t("leaderboard.topPerformers")}</h2>
         <div className="flex justify-center items-end space-x-4 mb-8">
           {players.slice(0, 3).map((player, index) => {
             const position = [1, 0, 2][index]; // 2nd, 1st, 3rd visual order
@@ -245,7 +245,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ setCurrentView }) => {
       {/* Full Leaderboard */}
       <div className="bg-[#20242D] rounded-xl border border-[rgba(255,255,255,0.1)]">
         <div className="p-6 border-b border-[rgba(255,255,255,0.1)]">
-          <h2 className="text-xl font-bold text-white">Rankings</h2>
+          <h2 className="text-xl font-bold text-white">{t("leaderboard.rankings")}</h2>
         </div>
 
         <div className="divide-y divide-[rgba(255,255,255,0.1)]">
@@ -270,7 +270,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ setCurrentView }) => {
                         {player.displayName}
                       </span>
                       {player.isCurrentUser && (
-                        <span className="text-xs bg-purple-500 text-white px-2 py-1 rounded-full">YOU</span>
+                        <span className="text-xs bg-purple-500 text-white px-2 py-1 rounded-full">{t("leaderboard.you")}</span>
                       )}
                     </div>
                     <div className="text-gray-400 text-sm">
@@ -283,23 +283,23 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ setCurrentView }) => {
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
                   <div>
                     <div className="text-white font-semibold">{player.totalPoints.toLocaleString()}</div>
-                    <div className="text-gray-400 text-xs">Points</div>
+                    <div className="text-gray-400 text-xs">{t("leaderboard.points")}</div>
                   </div>
                   <div>
                     <div className="text-white font-semibold">Lv.{player.level}</div>
-                    <div className="text-gray-400 text-xs">Level</div>
+                    <div className="text-gray-400 text-xs">{t("leaderboard.level")}</div>
                   </div>
                   <div className="hidden md:block">
                     <div className="text-white font-semibold">{player.streak}</div>
-                    <div className="text-gray-400 text-xs">Streak</div>
+                    <div className="text-gray-400 text-xs">{t("leaderboard.streak")}</div>
                   </div>
                   <div className="hidden md:block">
                     <div className="text-white font-semibold">{player.averageScore}%</div>
-                    <div className="text-gray-400 text-xs">Avg Score</div>
+                    <div className="text-gray-400 text-xs">{t("leaderboard.avgScore")}</div>
                   </div>
                   <div className="hidden md:block">
                     <div className="text-white font-semibold">{player.nftsClaimed}</div>
-                    <div className="text-gray-400 text-xs">NFTs</div>
+                    <div className="text-gray-400 text-xs">{t("leaderboard.nfts")}</div>
                   </div>
                 </div>
               </div>
@@ -311,22 +311,22 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ setCurrentView }) => {
       {/* Call to Action */}
       <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-xl border border-[rgba(255,255,255,0.1)] p-8 text-center">
         <Icon icon="solar:trophy-bold" className="text-yellow-400 text-4xl mx-auto mb-4" />
-        <h3 className="text-white font-bold text-xl mb-2">Climb the Rankings!</h3>
+        <h3 className="text-white font-bold text-xl mb-2">{t("leaderboard.climbRankings")}</h3>
         <p className="text-gray-400 mb-6">
-          Complete more quizzes and improve your scores to rise in the leaderboard
+          {t("leaderboard.climbDescription")}
         </p>
         <div className="flex justify-center space-x-4">
           <button
             onClick={() => setCurrentView("quiz")}
             className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105"
           >
-            Take Quiz
+            {t("leaderboard.takeQuiz")}
           </button>
           <button
             onClick={() => setCurrentView("tutor")}
             className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105"
           >
-            Learn More
+            {t("leaderboard.learnMore")}
           </button>
         </div>
       </div>

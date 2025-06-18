@@ -200,11 +200,11 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
     ).length;
     const percentage = (correctAnswers / questions.length) * 100;
     
-    if (percentage >= 90) return { grade: "A+", color: "text-green-400", message: "Outstanding!" };
-    if (percentage >= 80) return { grade: "A", color: "text-green-300", message: "Excellent!" };
-    if (percentage >= 70) return { grade: "B", color: "text-blue-400", message: "Good job!" };
-    if (percentage >= 60) return { grade: "C", color: "text-yellow-400", message: "Keep learning!" };
-    return { grade: "F", color: "text-red-400", message: "Try again!" };
+    if (percentage >= 90) return { grade: "A+", color: "text-green-400", message: t("quiz.outstanding") };
+    if (percentage >= 80) return { grade: "A", color: "text-green-300", message: t("quiz.excellent") };
+    if (percentage >= 70) return { grade: "B", color: "text-blue-400", message: t("quiz.goodJob") };
+    if (percentage >= 60) return { grade: "C", color: "text-yellow-400", message: t("quiz.keepLearning") };
+    return { grade: "F", color: "text-red-400", message: t("quiz.tryAgain") };
   };
 
   const resetQuiz = () => {
@@ -425,8 +425,8 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Results Header */}
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-2">Quiz Complete!</h1>
-          <p className="text-gray-400">Here&apos;s how you performed</p>
+          <h1 className="text-4xl font-bold text-white mb-2">{t("quiz.quizComplete")}</h1>
+          <p className="text-gray-400">{t("quiz.howYouPerformed")}</p>
         </div>
 
         {/* Score Card */}
@@ -439,7 +439,7 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
 
         {/* Question Review */}
         <div className="bg-[#20242D] rounded-xl border border-[rgba(255,255,255,0.1)] p-6">
-          <h3 className="text-white font-semibold mb-4">Question Review</h3>
+          <h3 className="text-white font-semibold mb-4">{t("quiz.questionReview")}</h3>
           <div className="space-y-4">
             {questions.map((question, index) => {
               const userAnswer = answers[index];
@@ -470,13 +470,13 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
             onClick={resetQuiz}
             className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105"
           >
-            Take Another Quiz
+            {t("quiz.takeAnotherQuiz")}
           </button>
           <button
             onClick={() => setCurrentView("dashboard")}
             className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105"
           >
-            Back to Dashboard
+            {t("quiz.backToDashboard")}
           </button>
         </div>
       </div>

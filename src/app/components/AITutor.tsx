@@ -47,22 +47,7 @@ const AITutor: React.FC<AITutorProps> = ({ setCurrentView }) => {
       setMessages([
         {
           role: "assistant",
-          content: `🎯 **Welcome to your AI Solana Tutor!**
-
-I'm here to help you master Solana blockchain technology through personalized learning. I can:
-
-✨ **Explain complex concepts** in simple terms
-📚 **Create custom quizzes** based on your level
-🔧 **Guide you through** hands-on Solana development
-💡 **Answer questions** about DeFi, NFTs, and more
-🎮 **Generate practice problems** to test your knowledge
-
-**Learning Modes:**
-- 🟢 **Beginner**: Start with blockchain basics
-- 🟡 **General**: Comprehensive Solana education  
-- 🔴 **Advanced**: Deep technical implementation
-
-What would you like to learn about today? You can ask me anything about Solana, blockchain, or request a personalized quiz!`
+          content: t("aiTutor.welcomeMessage")
         }
       ]);
     }
@@ -210,14 +195,7 @@ You can interact with the Solana blockchain using your tools when demonstrations
     setIsLoading(false);
   };
 
-  const quickQuestions = [
-    "What makes Solana different from Ethereum?",
-    "Explain Proof of History in simple terms",
-    "How do SPL tokens work?",
-    "Create a beginner quiz about blockchain basics",
-    "What are PDAs and why are they important?",
-    "Generate a quiz about Solana DeFi protocols"
-  ];
+  const quickQuestions = t("aiTutor.questions") as string[];
 
   const getCurrentTime = () => {
     const now = new Date();
@@ -244,9 +222,9 @@ You can interact with the Solana blockchain using your tools when demonstrations
         {/* Learning Mode Selector */}
         <div className="flex space-x-2">
           {[
-            { key: "beginner", label: "Beginner", color: "from-green-500 to-emerald-500" },
-            { key: "general", label: "General", color: "from-blue-500 to-cyan-500" },
-            { key: "advanced", label: "Advanced", color: "from-red-500 to-pink-500" }
+            { key: "beginner", label: t("aiTutor.modes.beginner"), color: "from-green-500 to-emerald-500" },
+            { key: "general", label: t("aiTutor.modes.general"), color: "from-blue-500 to-cyan-500" },
+            { key: "advanced", label: t("aiTutor.modes.advanced"), color: "from-red-500 to-pink-500" }
           ].map((mode) => (
             <button
               key={mode.key}
@@ -269,7 +247,7 @@ You can interact with the Solana blockchain using your tools when demonstrations
           <div className="bg-[#20242D] rounded-xl border border-[rgba(255,255,255,0.1)] p-4 sticky top-4">
             <h3 className="text-white font-semibold mb-4 flex items-center">
               <Icon icon="solar:lightbulb-bold" className="mr-2" />
-              Quick Questions
+              {t("aiTutor.quickQuestions")}
             </h3>
             <div className="space-y-2">
               {quickQuestions.map((question, index) => (
@@ -309,7 +287,7 @@ You can interact with the Solana blockchain using your tools when demonstrations
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center mb-2">
                       <span className="text-sm text-gray-400 mr-2">
-                        {m.role === "user" ? "You" : "AI Tutor"}
+                        {m.role === "user" ? t("aiTutor.you") : t("aiTutor.aiTutor")}
                       </span>
                       <span className="text-xs text-gray-500">{getCurrentTime()}</span>
                     </div>
@@ -337,7 +315,7 @@ You can interact with the Solana blockchain using your tools when demonstrations
                 <div className="flex-1">
                   <textarea
                     className="w-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 resize-none"
-                    placeholder="Ask me anything about Solana, or request a quiz..."
+                    placeholder={t("aiTutor.placeholder")}
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) =>
@@ -361,7 +339,7 @@ You can interact with the Solana blockchain using your tools when demonstrations
               </div>
               
               <div className="text-center text-gray-400 text-xs mt-3">
-                Press Enter to send • Shift+Enter for new line • Powered by OpenAI & Solana Agent Kit
+                {t("aiTutor.poweredBy")}
               </div>
             </div>
           </div>
