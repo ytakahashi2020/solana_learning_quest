@@ -2,6 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
+import Image from 'next/image';
+
+// Static image imports
+import level1Image from '/public/characters/levels/level-1.png';
+import level5Image from '/public/characters/levels/level-5.png';
+import level10Image from '/public/characters/levels/level-10.png';
 import { useTranslation } from '../hooks/useTranslation';
 
 interface CharacterAvatarProps {
@@ -86,10 +92,11 @@ const CharacterAvatar: React.FC<CharacterAvatarProps> = ({
         {/* メインキャラクター */}
         <div className="relative w-full h-full rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 border-2 border-purple-500/30 overflow-hidden flex items-center justify-center">
           {/* キャラクター画像 */}
-          <img 
-            src={`/characters/levels/level-${level <= 5 ? 1 : level <= 8 ? 5 : 10}.png`}
+          <Image 
+            src={level <= 5 ? level1Image : level <= 8 ? level5Image : level10Image}
             alt={`Level ${level} Character`}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
             onError={(e) => {
               // 画像が見つからない場合のフォールバック
               e.currentTarget.style.display = 'none';

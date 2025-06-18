@@ -195,7 +195,7 @@ You can interact with the Solana blockchain using your tools when demonstrations
     setIsLoading(false);
   };
 
-  const quickQuestions = t("aiTutor.questions") as string[];
+  const quickQuestions = Array.isArray(t("aiTutor.questions")) ? t("aiTutor.questions") as string[] : [];
 
   const getCurrentTime = () => {
     const now = new Date();
