@@ -19,6 +19,7 @@ import {
 } from "@solana/web3.js";
 import TokenPlugin from "@solana-agent-kit/plugin-token";
 import { usePhantomWallet } from "./PhantomWallet";
+import { useTranslation } from "../hooks/useTranslation";
 import Image from "next/image";
 
 interface AITutorProps {
@@ -31,6 +32,7 @@ const AITutor: React.FC<AITutorProps> = ({ setCurrentView }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [tutorMode, setTutorMode] = useState<"general" | "beginner" | "advanced">("general");
   const { phantom, connected, publicKey } = usePhantomWallet();
+  const { t } = useTranslation();
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -234,8 +236,8 @@ You can interact with the Solana blockchain using your tools when demonstrations
             <Icon icon="solar:arrow-left-bold" className="text-xl" />
           </button>
           <div>
-            <h1 className="text-2xl font-bold text-white">AI Solana Tutor</h1>
-            <p className="text-gray-400">Your personal blockchain learning companion</p>
+            <h1 className="text-2xl font-bold text-white">{t("aiTutor.title")}</h1>
+            <p className="text-gray-400">{t("aiTutor.subtitle")}</p>
           </div>
         </div>
 

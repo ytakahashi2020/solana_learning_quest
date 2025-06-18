@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { usePhantomWallet } from "./PhantomWallet";
+import { useTranslation } from "../hooks/useTranslation";
 
 interface LeaderboardPlayer {
   id: string;
@@ -24,6 +25,7 @@ interface LeaderboardProps {
 
 const Leaderboard: React.FC<LeaderboardProps> = ({ setCurrentView }) => {
   const { publicKey } = usePhantomWallet();
+  const { t } = useTranslation();
   const [timeFrame, setTimeFrame] = useState<"weekly" | "monthly" | "allTime">("weekly");
   const [category, setCategory] = useState<"overall" | "blockchain-basics" | "solana-fundamentals" | "defi-protocols" | "nft-tokens">("overall");
   const [players, setPlayers] = useState<LeaderboardPlayer[]>([]);
@@ -162,8 +164,8 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ setCurrentView }) => {
             <Icon icon="solar:arrow-left-bold" className="text-xl" />
           </button>
           <div>
-            <h1 className="text-3xl font-bold text-white">Leaderboard</h1>
-            <p className="text-gray-400">Compete with other learners globally</p>
+            <h1 className="text-3xl font-bold text-white">{t("leaderboard.title")}</h1>
+            <p className="text-gray-400">{t("leaderboard.subtitle")}</p>
           </div>
         </div>
       </div>

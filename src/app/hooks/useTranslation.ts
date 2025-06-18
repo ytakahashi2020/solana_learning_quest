@@ -112,6 +112,117 @@ const translations: { [locale: string]: TranslationData } = {
         title: "NFT Certificates"
       }
     },
+    leaderboard: {
+      title: "Leaderboard",
+      subtitle: "Compete with other learners globally",
+      timeFrame: "Time Frame",
+      thisWeek: "This Week",
+      thisMonth: "This Month", 
+      allTime: "All Time",
+      category: "Category",
+      overallRankings: "Overall Rankings",
+      blockchainBasics: "Blockchain Basics",
+      solanaFundamentals: "Solana Fundamentals",
+      defiProtocols: "DeFi Protocols",
+      nftsTokens: "NFTs & Tokens",
+      topPerformers: "Top Performers",
+      rankings: "Rankings",
+      points: "Points",
+      level: "Level",
+      streak: "Streak",
+      avgScore: "Avg Score",
+      nfts: "NFTs",
+      you: "YOU",
+      climbRankings: "Climb the Rankings!",
+      climbDescription: "Complete more quizzes and improve your scores to rise in the leaderboard",
+      takeQuiz: "Take Quiz",
+      learnMore: "Learn More"
+    },
+    quiz: {
+      title: "Quiz Arena",
+      subtitle: "Test your Solana knowledge and earn points",
+      selectDifficulty: "Select Difficulty",
+      selectCategory: "Select Category",
+      beginner: "Beginner",
+      intermediate: "Intermediate", 
+      advanced: "Advanced",
+      points10: "10 pts/question",
+      points20: "20 pts/question",
+      points30: "30 pts/question",
+      startQuizChallenge: "Start Quiz Challenge",
+      generatingQuiz: "Generating Quiz...",
+      quizComplete: "Quiz Complete!",
+      howYouPerformed: "Here's how you performed",
+      outstanding: "Outstanding!",
+      excellent: "Excellent!",
+      goodJob: "Good job!",
+      keepLearning: "Keep learning!",
+      tryAgain: "Try again!",
+      questionReview: "Question Review",
+      takeAnotherQuiz: "Take Another Quiz",
+      backToDashboard: "Back to Dashboard",
+      categories: {
+        blockchainBasics: {
+          name: "Blockchain Basics",
+          description: "Learn fundamental blockchain concepts and cryptography"
+        },
+        solanaFundamentals: {
+          name: "Solana Fundamentals", 
+          description: "Master Solana's unique features and architecture"
+        },
+        defiProtocols: {
+          name: "DeFi Protocols",
+          description: "Explore decentralized finance on Solana"
+        },
+        nftTokens: {
+          name: "NFT & Tokens",
+          description: "Understand digital assets and token standards"
+        }
+      }
+    },
+    nftCertificate: {
+      title: "NFT Certificates",
+      subtitle: "Earn blockchain credentials verified on Solana",
+      certificatesEarned: "Certificates Earned",
+      readyToClaim: "Ready to Claim",
+      inProgress: "In Progress", 
+      legendaryCerts: "Legendary Certs",
+      startJourney: "Start Your Journey",
+      journeyDescription: "Complete quizzes and learn about Solana to earn verifiable NFT certificates that prove your blockchain expertise.",
+      certificates: {
+        blockchainExplorer: {
+          name: "Blockchain Explorer",
+          description: "Master the fundamentals of blockchain technology"
+        },
+        solanaPioneer: {
+          name: "Solana Pioneer",
+          description: "Demonstrate expertise in Solana ecosystem"
+        },
+        defiSpecialist: {
+          name: "DeFi Specialist", 
+          description: "Proven knowledge in decentralized finance"
+        },
+        nftMaster: {
+          name: "NFT Master",
+          description: "Expert in digital assets and NFT technology"
+        }
+      }
+    },
+    aiTutor: {
+      title: "AI Solana Tutor",
+      subtitle: "Your personal blockchain learning companion",
+      welcomeMessage: "🎯 **Welcome to your AI Solana Tutor!**\n\nI'm here to help you master Solana blockchain technology. You can ask me anything about:\n\n🔷 **Blockchain Fundamentals** - Basic concepts, cryptography, consensus\n🔷 **Solana Architecture** - Proof of History, validators, clusters\n🔷 **Smart Contracts** - Program development, Anchor framework\n🔷 **DeFi Protocols** - DEXs, lending, yield farming\n🔷 **NFTs & Tokens** - Token standards, marketplaces, minting\n\nChoose your learning level and let's start your journey!",
+      modes: {
+        beginner: "Beginner",
+        general: "General",
+        advanced: "Advanced"
+      },
+      quickQuestions: "Quick Questions",
+      you: "You",
+      aiTutor: "AI Tutor",
+      placeholder: "Ask me anything about Solana, or request a quiz...",
+      poweredBy: "Press Enter to send • Shift+Enter for new line • Powered by OpenAI & Solana Agent Kit"
+    },
     navigation: {
       dashboard: "Dashboard",
       aiTutor: "AI Tutor", 
@@ -245,6 +356,117 @@ const translations: { [locale: string]: TranslationData } = {
       nft: {
         title: "NFT認定証"
       }
+    },
+    leaderboard: {
+      title: "リーダーボード",
+      subtitle: "世界中の学習者と競争しよう",
+      timeFrame: "期間",
+      thisWeek: "今週",
+      thisMonth: "今月",
+      allTime: "全期間",
+      category: "カテゴリ",
+      overallRankings: "総合ランキング",
+      blockchainBasics: "ブロックチェーン基礎",
+      solanaFundamentals: "Solana基礎",
+      defiProtocols: "DeFiプロトコル",
+      nftsTokens: "NFT・トークン",
+      topPerformers: "トップパフォーマー",
+      rankings: "ランキング",
+      points: "ポイント",
+      level: "レベル",
+      streak: "連続記録",
+      avgScore: "平均スコア",
+      nfts: "NFT",
+      you: "あなた",
+      climbRankings: "ランキングを上がろう！",
+      climbDescription: "より多くのクイズを完了し、スコアを向上させてリーダーボードで上位を目指しましょう",
+      takeQuiz: "クイズに挑戦",
+      learnMore: "詳しく学ぶ"
+    },
+    quiz: {
+      title: "クイズアリーナ",
+      subtitle: "Solanaの知識をテストしてポイントを獲得",
+      selectDifficulty: "難易度選択",
+      selectCategory: "カテゴリ選択",
+      beginner: "初級",
+      intermediate: "中級",
+      advanced: "上級",
+      points10: "10ポイント/問",
+      points20: "20ポイント/問",
+      points30: "30ポイント/問",
+      startQuizChallenge: "クイズチャレンジ開始",
+      generatingQuiz: "クイズ生成中...",
+      quizComplete: "クイズ完了！",
+      howYouPerformed: "あなたの成績です",
+      outstanding: "素晴らしい！",
+      excellent: "優秀！",
+      goodJob: "よくできました！",
+      keepLearning: "学習を続けよう！",
+      tryAgain: "再挑戦！",
+      questionReview: "問題レビュー",
+      takeAnotherQuiz: "別のクイズに挑戦",
+      backToDashboard: "ダッシュボードに戻る",
+      categories: {
+        blockchainBasics: {
+          name: "ブロックチェーン基礎",
+          description: "基本的なブロックチェーン概念と暗号技術を学ぶ"
+        },
+        solanaFundamentals: {
+          name: "Solana基礎",
+          description: "Solanaの独自機能とアーキテクチャをマスター"
+        },
+        defiProtocols: {
+          name: "DeFiプロトコル",
+          description: "Solana上の分散型金融を探索"
+        },
+        nftTokens: {
+          name: "NFT・トークン",
+          description: "デジタル資産とトークン標準を理解"
+        }
+      }
+    },
+    nftCertificate: {
+      title: "NFT認定証",
+      subtitle: "Solanaで検証されたブロックチェーン資格を獲得",
+      certificatesEarned: "取得した認定証",
+      readyToClaim: "受け取り可能",
+      inProgress: "進行中",
+      legendaryCerts: "レジェンダリー認定証",
+      startJourney: "旅を始めよう",
+      journeyDescription: "クイズを完了しSolanaについて学んで、あなたのブロックチェーン専門知識を証明する検証可能なNFT認定証を獲得しましょう。",
+      certificates: {
+        blockchainExplorer: {
+          name: "ブロックチェーンエクスプローラー",
+          description: "ブロックチェーン技術の基礎をマスター"
+        },
+        solanaPioneer: {
+          name: "Solanaパイオニア",
+          description: "Solanaエコシステムの専門知識を実証"
+        },
+        defiSpecialist: {
+          name: "DeFiスペシャリスト",
+          description: "分散型金融における実証された知識"
+        },
+        nftMaster: {
+          name: "NFTマスター",
+          description: "デジタル資産とNFT技術のエキスパート"
+        }
+      }
+    },
+    aiTutor: {
+      title: "AI Solanaチューター",
+      subtitle: "あなた専用のブロックチェーン学習コンパニオン",
+      welcomeMessage: "🎯 **AI Solanaチューターへようこそ！**\n\nSolanaブロックチェーン技術をマスターするお手伝いをします。以下について何でもお聞きください：\n\n🔷 **ブロックチェーン基礎** - 基本概念、暗号技術、コンセンサス\n🔷 **Solanaアーキテクチャ** - Proof of History、バリデーター、クラスター\n🔷 **スマートコントラクト** - プログラム開発、Anchorフレームワーク\n🔷 **DeFiプロトコル** - DEX、レンディング、イールドファーミング\n🔷 **NFT・トークン** - トークン標準、マーケットプレイス、ミンティング\n\n学習レベルを選択して、あなたの学習の旅を始めましょう！",
+      modes: {
+        beginner: "初級",
+        general: "一般",
+        advanced: "上級"
+      },
+      quickQuestions: "クイック質問",
+      you: "あなた",
+      aiTutor: "AIチューター",
+      placeholder: "Solanaについて何でも聞いてください、またはクイズをリクエストしてください...",
+      poweredBy: "Enterで送信 • Shift+Enterで改行 • OpenAI & Solana Agent Kit 提供"
     },
     navigation: {
       dashboard: "ダッシュボード",

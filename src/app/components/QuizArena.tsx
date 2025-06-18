@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Icon } from "@iconify/react";
 import { usePhantomWallet } from "./PhantomWallet";
+import { useTranslation } from "../hooks/useTranslation";
 import { toast } from "sonner";
 import { generateText } from "ai";
 import { myProvider } from "../utils/provider";
@@ -24,6 +25,7 @@ interface QuizArenaProps {
 
 const QuizArena: React.FC<QuizArenaProps> = ({ setCurrentView }) => {
   const { connected, publicKey } = usePhantomWallet();
+  const { t } = useTranslation();
   const [gameMode, setGameMode] = useState<"select" | "playing" | "results">("select");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedDifficulty, setSelectedDifficulty] = useState<"beginner" | "intermediate" | "advanced">("beginner");
@@ -39,31 +41,31 @@ const QuizArena: React.FC<QuizArenaProps> = ({ setCurrentView }) => {
   const categories = [
     {
       id: "blockchain-basics",
-      name: "Blockchain Basics",
+      name: t("quiz.categories.blockchainBasics.name"),
       icon: "solar:book-bold",
       color: "from-blue-500 to-cyan-500",
-      description: "Fundamental concepts of blockchain technology"
+      description: t("quiz.categories.blockchainBasics.description")
     },
     {
       id: "solana-fundamentals", 
-      name: "Solana Fundamentals",
+      name: t("quiz.categories.solanaFundamentals.name"),
       icon: "solar:cpu-bolt-bold",
       color: "from-purple-500 to-blue-500",
-      description: "Core Solana architecture and features"
+      description: t("quiz.categories.solanaFundamentals.description")
     },
     {
       id: "defi-protocols",
-      name: "DeFi Protocols",
+      name: t("quiz.categories.defiProtocols.name"),
       icon: "solar:wallet-bold",
       color: "from-green-500 to-teal-500",
-      description: "Decentralized finance and protocols"
+      description: t("quiz.categories.defiProtocols.description")
     },
     {
       id: "nft-tokens",
-      name: "NFTs & Tokens",
+      name: t("quiz.categories.nftTokens.name"),
       icon: "solar:gallery-bold", 
       color: "from-pink-500 to-purple-500",
-      description: "Non-fungible tokens and tokenomics"
+      description: t("quiz.categories.nftTokens.description")
     }
   ];
 
@@ -231,20 +233,20 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
               <Icon icon="solar:arrow-left-bold" className="text-xl" />
             </button>
             <div>
-              <h1 className="text-3xl font-bold text-white">Quiz Arena</h1>
-              <p className="text-gray-400">Test your Solana knowledge and earn points</p>
+              <h1 className="text-3xl font-bold text-white">{t("quiz.title")}</h1>
+              <p className="text-gray-400">{t("quiz.subtitle")}</p>
             </div>
           </div>
         </div>
 
         {/* Difficulty Selection */}
         <div className="bg-[#20242D] rounded-xl border border-[rgba(255,255,255,0.1)] p-6">
-          <h2 className="text-xl font-bold text-white mb-4">Select Difficulty</h2>
+          <h2 className="text-xl font-bold text-white mb-4">{t("quiz.selectDifficulty")}</h2>
           <div className="grid grid-cols-3 gap-4">
             {[
-              { key: "beginner", label: "Beginner", color: "from-green-500 to-emerald-500", points: "10 pts/question" },
-              { key: "intermediate", label: "Intermediate", color: "from-blue-500 to-cyan-500", points: "20 pts/question" },
-              { key: "advanced", label: "Advanced", color: "from-red-500 to-pink-500", points: "30 pts/question" }
+              { key: "beginner", label: t("quiz.beginner"), color: "from-green-500 to-emerald-500", points: t("quiz.points10") },
+              { key: "intermediate", label: t("quiz.intermediate"), color: "from-blue-500 to-cyan-500", points: t("quiz.points20") },
+              { key: "advanced", label: t("quiz.advanced"), color: "from-red-500 to-pink-500", points: t("quiz.points30") }
             ].map((diff) => (
               <button
                 key={diff.key}
@@ -266,7 +268,7 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
 
         {/* Category Selection */}
         <div className="bg-[#20242D] rounded-xl border border-[rgba(255,255,255,0.1)] p-6">
-          <h2 className="text-xl font-bold text-white mb-4">Select Category</h2>
+          <h2 className="text-xl font-bold text-white mb-4">{t("quiz.selectCategory")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {categories.map((category) => (
               <button
@@ -304,10 +306,10 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
             {isGenerating ? (
               <div className="flex items-center space-x-2">
                 <Icon icon="solar:loading-bold" className="animate-spin" />
-                <span>Generating Quiz...</span>
+                <span>{t("quiz.generatingQuiz")}</span>
               </div>
             ) : (
-              "Start Quiz Challenge"
+              t("quiz.startQuizChallenge")
             )}
           </button>
         </div>
