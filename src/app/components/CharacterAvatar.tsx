@@ -85,8 +85,19 @@ const CharacterAvatar: React.FC<CharacterAvatarProps> = ({
       <div className={`relative ${sizeClasses[size]} ${isAnimating ? 'animate-pulse' : ''}`}>
         {/* メインキャラクター */}
         <div className="relative w-full h-full rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 border-2 border-purple-500/30 overflow-hidden flex items-center justify-center">
-          {/* プレースホルダーキャラクター */}
-          <div className="flex flex-col items-center justify-center text-center">
+          {/* キャラクター画像 */}
+          <img 
+            src={`/characters/levels/level-${level <= 5 ? 1 : level <= 8 ? 5 : 10}.png`}
+            alt={`Level ${level} Character`}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // 画像が見つからない場合のフォールバック
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.nextElementSibling!.style.display = 'flex';
+            }}
+          />
+          {/* フォールバック表示 */}
+          <div className="hidden flex-col items-center justify-center text-center">
             <Icon icon="solar:user-bold" className="text-purple-400 text-4xl mb-1" />
             <span className="text-purple-300 text-xs font-bold">Lv.{level}</span>
           </div>
