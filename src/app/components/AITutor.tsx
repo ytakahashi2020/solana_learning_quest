@@ -51,7 +51,7 @@ const AITutor: React.FC<AITutorProps> = ({ setCurrentView }) => {
         }
       ]);
     }
-  }, [messages.length, t]);
+  }, []);
 
   const solanaTools = useMemo(() => {
     if (phantom) {
