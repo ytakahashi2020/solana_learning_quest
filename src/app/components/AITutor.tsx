@@ -72,36 +72,32 @@ What would you like to learn about today? You can ask me anything about Solana, 
       const agent = new SolanaAgentKit(
         {
           publicKey: wallet!,
-          signTransaction: async <T extends Transaction | VersionedTransaction>(
-            tx: T
-          ): Promise<T> => {
+          signTransaction: async (transaction: any): Promise<any> => {
             if (!phantom) throw new Error("Phantom not initialized.");
-            const signedTransaction = await phantom.solana.signTransaction(tx);
-            return signedTransaction as T;
+            const signedTransaction = await phantom.solana.signTransaction(transaction);
+            return signedTransaction;
           },
           signMessage: async (msg) => {
             if (!phantom) throw new Error("Phantom not initialized.");
             const signedMessage = await phantom.solana.signMessage(msg);
             return signedMessage.signature;
           },
-          sendTransaction: async (tx) => {
+          sendTransaction: async (transaction: any) => {
             if (!phantom) throw new Error("Phantom not initialized.");
-            const transactionHash = await phantom.solana.sendTransaction(tx);
+            const transactionHash = await phantom.solana.sendTransaction(transaction);
             return transactionHash;
           },
-          signAllTransactions: async <T extends Transaction | VersionedTransaction>(
-            txs: T[]
-          ): Promise<T[]> => {
+          signAllTransactions: async (transactions: any[]): Promise<any[]> => {
             if (!phantom) throw new Error("Phantom not initialized.");
-            const signedTransaction = await phantom.solana.signAllTransactions(txs);
-            return signedTransaction as T[];
+            const signedTransactions = await phantom.solana.signAllTransactions(transactions);
+            return signedTransactions;
           },
-          signAndSendTransaction: async <T extends Transaction | VersionedTransaction>(
-            tx: T,
-            options?: SendOptions
+          signAndSendTransaction: async (
+            transaction: any,
+            options?: any
           ): Promise<{ signature: string }> => {
             if (!phantom) throw new Error("Phantom not initialized.");
-            const transactionHash = await phantom.solana.signAndSendTransaction(tx);
+            const transactionHash = await phantom.solana.signAndSendTransaction(transaction);
             return { signature: transactionHash };
           },
         },

@@ -82,16 +82,16 @@ const GameDashboard: React.FC<GameDashboardProps> = ({ setCurrentView }) => {
   const achievements = [
     {
       id: "first-quiz",
-      name: t("game.dashboard.achievements.firstSteps.name"),
-      description: t("game.dashboard.achievements.firstSteps.description"),
+      name: t("game.dashboard.achievementDetails.firstSteps.name"),
+      description: t("game.dashboard.achievementDetails.firstSteps.description"),
       icon: "solar:star-bold",
       earned: true,
       date: "2024-06-15"
     },
     {
       id: "streak-7",
-      name: t("game.dashboard.achievements.weekWarrior.name"),
-      description: t("game.dashboard.achievements.weekWarrior.description"),
+      name: t("game.dashboard.achievementDetails.weekWarrior.name"),
+      description: t("game.dashboard.achievementDetails.weekWarrior.description"),
       icon: "solar:fire-bold",
       earned: false,
       progress: 5,
@@ -99,16 +99,16 @@ const GameDashboard: React.FC<GameDashboardProps> = ({ setCurrentView }) => {
     },
     {
       id: "perfect-score",
-      name: t("game.dashboard.achievements.perfectMind.name"),
-      description: t("game.dashboard.achievements.perfectMind.description"),
+      name: t("game.dashboard.achievementDetails.perfectMind.name"),
+      description: t("game.dashboard.achievementDetails.perfectMind.description"),
       icon: "solar:medal-star-bold",
       earned: true,
       date: "2024-06-14"
     },
     {
       id: "blockchain-master",
-      name: t("game.dashboard.achievements.blockchainMaster.name"),
-      description: t("game.dashboard.achievements.blockchainMaster.description"),
+      name: t("game.dashboard.achievementDetails.blockchainMaster.name"),
+      description: t("game.dashboard.achievementDetails.blockchainMaster.description"),
       icon: "solar:crown-bold",
       earned: false,
       progress: 12,
@@ -289,15 +289,15 @@ const GameDashboard: React.FC<GameDashboardProps> = ({ setCurrentView }) => {
                   {achievement.earned ? (
                     <p className="text-green-400 text-xs">
                       {achievement.id === "first-quiz" 
-                        ? t("game.dashboard.achievements.firstSteps.earned", { date: achievement.date })
-                        : t("game.dashboard.achievements.perfectMind.earned", { date: achievement.date })
+                        ? t("game.dashboard.achievementDetails.firstSteps.earned", { date: achievement.date || "2024-06-15" })
+                        : t("game.dashboard.achievementDetails.perfectMind.earned", { date: achievement.date || "2024-06-14" })
                       }
                     </p>
                   ) : (
                     <p className="text-gray-400 text-xs">
                       {achievement.id === "streak-7" 
-                        ? t("game.dashboard.achievements.weekWarrior.progress", { current: achievement.progress, target: achievement.target })
-                        : t("game.dashboard.achievements.blockchainMaster.progress", { current: achievement.progress, target: achievement.target })
+                        ? t("game.dashboard.achievementDetails.weekWarrior.progress", { current: achievement.progress || 0, target: achievement.target || 0 })
+                        : t("game.dashboard.achievementDetails.blockchainMaster.progress", { current: achievement.progress || 0, target: achievement.target || 0 })
                       }
                     </p>
                   )}

@@ -75,7 +75,7 @@ const QuizArena: React.FC<QuizArenaProps> = ({ setCurrentView }) => {
     } else if (timeLeft === 0 && gameMode === "playing" && !showExplanation) {
       handleAnswerSubmit();
     }
-  }, [timeLeft, gameMode, showExplanation, handleAnswerSubmit]);
+  }, [timeLeft, gameMode, showExplanation]);
 
   const generateQuizQuestions = async (category: string, difficulty: string) => {
     setIsGenerating(true);
@@ -148,7 +148,7 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
           ],
           correctAnswer: 1,
           explanation: "Proof of History allows Solana to achieve faster transaction processing by providing a cryptographic timestamp, eliminating the need for nodes to communicate about time.",
-          difficulty: difficulty,
+          difficulty: difficulty as "beginner" | "intermediate" | "advanced",
           category: category,
           points: 20
         }

@@ -76,7 +76,7 @@ const translations: { [locale: string]: TranslationData } = {
           viewNFTs: "View NFT Certificates",
           viewLeaderboard: "View Leaderboard"
         },
-        achievements: {
+        achievementDetails: {
           firstSteps: {
             name: "First Steps",
             description: "Complete your first quiz",
@@ -210,7 +210,7 @@ const translations: { [locale: string]: TranslationData } = {
           viewNFTs: "NFT認定証を見る",
           viewLeaderboard: "リーダーボードを見る"
         },
-        achievements: {
+        achievementDetails: {
           firstSteps: {
             name: "はじめの一歩",
             description: "初回クイズ完了",
