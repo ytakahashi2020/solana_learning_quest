@@ -43,13 +43,15 @@ const AITutor: React.FC<AITutorProps> = ({ setCurrentView }) => {
 
   // Initialize with welcome message
   useEffect(() => {
-    setMessages([
-      {
-        role: "assistant",
-        content: t("aiTutor.welcomeMessage")
-      }
-    ]);
-  }, [t]);
+    if (messages.length === 0) {
+      setMessages([
+        {
+          role: "assistant",
+          content: t("aiTutor.welcomeMessage")
+        }
+      ]);
+    }
+  }, [messages.length, t]);
 
   const solanaTools = useMemo(() => {
     if (phantom) {
