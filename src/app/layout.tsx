@@ -17,9 +17,8 @@ function RootLayout({ children }: RootLayoutProps) {
       <head>
         <title>SolanaLearningQuest</title>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="h-full font-['Inter',sans-serif]">
+      <body className="h-full font-sans">
         <PhantomWalletProvider>
           <div className="fixed top-4 right-4 z-[60]">
             <LanguageSwitcher />

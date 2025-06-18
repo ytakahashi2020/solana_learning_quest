@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Icon } from "@iconify/react";
 import { usePhantomWallet } from "./PhantomWallet";
 import { toast } from "sonner";
@@ -75,7 +75,7 @@ const QuizArena: React.FC<QuizArenaProps> = ({ setCurrentView }) => {
     } else if (timeLeft === 0 && gameMode === "playing" && !showExplanation) {
       handleAnswerSubmit();
     }
-  }, [timeLeft, gameMode, showExplanation]);
+  }, [timeLeft, gameMode, showExplanation, handleAnswerSubmit]);
 
   const generateQuizQuestions = async (category: string, difficulty: string) => {
     setIsGenerating(true);
@@ -161,7 +161,7 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
     }
   };
 
-  const handleAnswerSubmit = () => {
+  const handleAnswerSubmit = useCallback(() => {
     if (selectedAnswer !== null) {
       const newAnswers = [...answers, selectedAnswer];
       setAnswers(newAnswers);
@@ -175,11 +175,11 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
     } else {
       // Time ran out
       setAnswers([...answers, -1]);
-      toast.error("Time's up! ⏰");
+      toast.error("Time&apos;s up! ⏰");
     }
 
     setShowExplanation(true);
-  };
+  }, [selectedAnswer, answers, questions, currentQuestionIndex, score]);
 
   const handleNextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
@@ -424,7 +424,7 @@ Make questions challenging but fair for ${difficulty} level. Ensure explanations
         {/* Results Header */}
         <div className="text-center">
           <h1 className="text-4xl font-bold text-white mb-2">Quiz Complete!</h1>
-          <p className="text-gray-400">Here's how you performed</p>
+          <p className="text-gray-400">Here&apos;s how you performed</p>
         </div>
 
         {/* Score Card */}

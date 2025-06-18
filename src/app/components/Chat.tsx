@@ -39,7 +39,7 @@ export const AIChat: React.FC<AIChatProps> = () => {
     if (bottomRef.current) {
       bottomRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages]);
+  }, [messages.length]);
 
   const solanaTools = useMemo(() => {
     if (phantom) {
@@ -188,10 +188,12 @@ export const AIChat: React.FC<AIChatProps> = () => {
                     className={`${m.role === "user" ? "bg-[#2658DD] rounded-lg" : "bg-white rounded-lg"} flex items-center justify-center w-8 h-8`}
                   >
                     {m.role === "user" ? (
-                      <img
+                      <Image
                         src="/icons/user-icon.png"
                         alt="User"
-                        className="object-contain w- h-6"
+                        width={24}
+                        height={24}
+                        className="object-contain"
                       />
                     ) : (
                         <Image src="/sendai.jpg" alt="Sendai Logo" width={32} height={32} className="rounded-lg" />
@@ -245,11 +247,12 @@ export const AIChat: React.FC<AIChatProps> = () => {
                         }
                         if ("url" in part && typeof part.url === "string") {
                           return (
-                            <div className="my-2">
-                              <img
-                                key={idx}
+                            <div key={idx} className="my-2">
+                              <Image
                                 src={part.url}
                                 alt="AI image"
+                                width={400}
+                                height={300}
                                 className="rounded-lg max-w-full object-cover shadow-lg"
                               />
                             </div>

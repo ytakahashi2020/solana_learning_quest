@@ -37,7 +37,7 @@ const AITutor: React.FC<AITutorProps> = ({ setCurrentView }) => {
     if (bottomRef.current) {
       bottomRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages]);
+  }, [messages.length]);
 
   // Initialize with welcome message
   useEffect(() => {
